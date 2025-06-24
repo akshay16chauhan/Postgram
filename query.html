@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Query Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .query-textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.query-textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.query-dropdown {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border-radius: 8px;
+  border: 2px solid var(--gray-medium);
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--gray-light);
+  color: var(--dark-color);
+  transition: var(--transition);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='gray' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  box-shadow: var(--shadow);
+}
+
+.query-dropdown:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(214, 41, 118, 0.2);
+}
+
+.query-dropdown option {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.query-group {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.execute-btn {
+  width: 200px;
+  margin: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+  </style>
+</head>
+<body>
+  <div class="top-left">
+    <img src="logo.png" alt="Postgram Logo" style="height: 60px;">
+  </div>
+
+  <div class="main-container">
+    <h1>Execute a Query</h1>
+
+    <div class="query-group" style="width: 100%; max-width: 900px;">
+      <select id="querySelect" class="query-dropdown">
+        <option value="select">Select a Query</option>
+        <option value="getAllPosts">Get All Posts</option>
+        <option value="getUserDetails">Get User Details</option>
+        <option value="getRecentPosts">Recent Posts (Top 10)</option>
+        <option value="queryUsersInMaharashtra">Users in Maharashtra</option>
+        <option value="queryUsersUnder20">Users Under 20</option>
+        <option value="queryAvgPosts">Average Posts Per User</option>
+        <option value="queryUsersNoLikes">Users With No Likes</option>
+        <option value="queryStoryAboveAvgLikes">Users With Story Likes > Avg</option>
+        <option value="queryYoungestFriendCircle">Youngest Friend Circle</option>
+        <option value="queryOldestNewestPosts">Oldest & Newest Posts</option>
+        <option value="queryLeastLikedPosts">Top 3 Least Liked Posts</option>
+        <option value="queryUsersNoStory">Users With No Stories</option>
+        <option value="queryActiveUsers">Most and Least Active Users</option>
+      </select>
+      
+      <textarea id="customQuery" class="query-textarea" placeholder="Or write your custom SQL query here..." rows="4"></textarea>
+
+      <button class="btn execute-btn" id="executeBtn">Execute</button>
+    </div>
+
+    <!-- ✅ Result Table Styled Like View Page -->
+    <div id="queryResult" class="data-container card" style="margin-top: 30px;">
+      <table id="resultTable" class="data-table">
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody>
+          <!-- Results will be dynamically inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="btn nav-btn" onclick="window.location.href='index.html'">Home</button>
+    <button class="btn nav-btn" onclick="window.location.href='insert.html'">Insert Data</button>
+    <button class="btn nav-btn" onclick="window.location.href='view.html'">View Data</button>
+  </div>
+
+  <script src="query.js"></script>
+</body>
+</html>

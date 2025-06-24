@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Data - Postgram</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="top-left">
+      <img src="logo.png" alt="Postgram Logo" style="height: 60px;">
+    </div>
+    
+    <div class="nav-buttons">
+        <button class="btn nav-btn" onclick="window.location.href='index.html'">Home</button>
+        <button class="btn nav-btn" onclick="window.location.href='insert.html'">Insert Data</button>
+        <button class="btn nav-btn" onclick="window.location.href='query.html'" style="margin-left: auto;">Query</button>
+    </div>
+
+    <div class="main-container">
+        <h1>View Data</h1>
+        
+        <div class="btn-group">
+            <button class="btn" data-view="users">Users</button>
+            <button class="btn" data-view="profiles">Profiles</button>
+            <button class="btn" data-view="posts">Posts</button>
+            <button class="btn" data-view="friendships">Friendships</button>
+            <button class="btn" data-view="comments">Comments</button>
+            <button class="btn" data-view="likes">Likes</button>
+            <button class="btn" data-view="stories">Stories</button>
+        </div>
+
+        <div class="data-container">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search in all columns..." onkeyup="searchTable()">
+                <button onclick="searchTable()">Search</button>
+                <button onclick="resetSearch()">Reset</button>
+            </div>
+
+            <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                Loading data...
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <table class="data-table">
+                <thead id="tableHeader">
+                    <!-- Headers will be populated dynamically -->
+                </thead>
+                <tbody id="dataBody">
+                    <!-- Data will be populated here dynamically -->
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <button id="prevPage" onclick="changePage(-1)">Previous</button>
+                <span id="pageInfo">Page 1</span>
+                <button id="nextPage" onclick="changePage(1)">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="view.js"></script>
+</body>
+</html>

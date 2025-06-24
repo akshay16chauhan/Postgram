@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insert Data - Postgram</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="top-left">
+    <img src="logo.png" alt="Postgram Logo" style="height: 60px;">
+  </div>
+  <div class="nav-buttons" style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
+    <div style="display: flex; gap: 20px;">
+      <button class="btn nav-btn" onclick="window.location.href='index.html'">Home</button>
+      <button class="btn nav-btn" onclick="window.location.href='view.html'">View Data</button>
+    </div>
+    <button class="btn nav-btn" onclick="window.location.href='query.html'">Query</button>
+  </div>
+
+  <!-- Notification Container -->
+  <div class="notification-container" id="notificationContainer"></div>
+
+  <div class="main-container">
+    <h1>Insert Options</h1>
+    <div class="btn-group">
+      <button class="btn" data-form="user-form">User Data</button>
+      <button class="btn" data-form="login-form">Login Credentials</button>
+      <button class="btn" data-form="profile-form">Profile Data</button>
+      <button class="btn" data-form="post-form">Post</button>
+      <button class="btn" data-form="friendship-form">Friendship</button>
+      <button class="btn" data-form="comment-form">Comments</button>
+      <button class="btn" data-form="like-form">Likes</button>
+      <button class="btn" data-form="story-form">Story</button>
+    </div>
+  </div>
+
+  <!-- Overlay for forms -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- User Form -->
+  <div id="user-form" class="form-container">
+    <button class="close-btn">x</button>
+    <h2>Add User</h2>
+    <form id="userForm" action="insert_user.php" method="post">
+      <div class="form-group">
+        <label for="user-id">User ID:</label>
+        <input type="number" id="user-id" name="UserID" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required>
+      </div>
+      <div class="form-group">
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="Address_street" required>
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="Address_city" required>
+      </div>
+      <div class="form-group">
+        <label for="state">State:</label>
+        <input type="text" id="state" name="Address_state" required>
+      </div>
+      <div class="form-group">
+        <label for="pincode">Pincode:</label>
+        <input type="number" id="pincode" name="Pincode" required>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile" name="Mobile">
+      </div>
+      <button type="submit" class="submit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- Login Form -->
+  <div id="login-form" class="form-container">
+    <button class="close-btn">×</button>
+    <h2>Add Login Credentials</h2>
+    <form id="loginForm" action="insert_login.php" method="post">
+      <div class="form-group">
+        <label for="login-id">Login ID:</label>
+        <input type="number" id="login-id" name="Login_id" required>
+      </div>
+      <div class="form-group">
+        <label for="login-username">Username:</label>
+        <input type="text" id="login-username" name="Login_username" required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" name="Login_password">
+      </div>
+      <div class="form-group">
+        <label for="login-user-id">User ID:</label>
+        <input type="number" id="login-user-id" name="UserID" required>
+      </div>
+      <button type="submit" class="submit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- Profile Form -->
+  <div id="profile-form" class="form-container">
+    <button class="close-btn">×</button>
+    <h2>Add Profile Data</h2>
+    <form id="profileForm" action="insert_profile.php" method="post">
+      <div class="form-group">
+        <label for="profile-id">User Profile ID:</label>
+        <input type="number" id="profile-id" name="UserProfileID" required>
+      </div>
+      <div class="form-group">
+        <label for="profile-user-id">User ID:</label>
+        <input type="number" id="profile-user-id" name="UserID" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="Username" required maxlength="20">
+      </div>
+      <div class="form-group">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="First_Name" required maxlength="20">
+      </div>
+      <div class="form-group">
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="Last_Name" maxlength="20">
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="DOB">
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="Age">
+      </div>
+      <button type="submit" class="submit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- Post Form -->
+  <div id="post-form" class="form-container">
+    <button class="close-btn">×</button>
+    <h2>Add Post</h2>
+    <form id="postForm" action="insert_post.php" method="post">
+      <div class="form-group">
+        <label for="post-id">Post ID:</label>
+        <input type="number" id="post-id" name="Post_id" required>
+      </div>
+      <div class="form-group">
+        <label for="post-profile-id">User Profile ID:</label>
+        <input type="number" id="post-profile-id" name="UserProfileID" required>
+      </div>
+      <div class="form-group">
+        <label for="caption">Caption:</label>
+        <input type="text" id="caption" name="Caption" maxlength="50">
+      </div>
+      <div class="form-group">
+        <label for="image">Image:</label>
+        <input type="text" id="image" name="Image" maxlength="20">
+      </div>
+      <div class="form-group">
+        <label for="video">Video:</label>
+        <input type="text" id="video" name="Video" maxlength="20">
+      </div>
+      <button type="submit" class="submit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- Friendship Form -->
+  <div id="friendship-form" class="form-container">
+    <button class="close-btn">×</button>
+    <h2>Add Friendship</h2>
+    <form id="friendshipForm" action="insert_friendship.php" method="post">
+      <div class="form-group">
+        <label for="friend1">User Profile ID 1:</label>
+        <input type="number" id="friend1" name="f1" required>
+      </div>
+      <div class="form-group">
+        <label for="friend2">User Profile ID 2:</label>
+        <input type="number" id="friend2" name="f2" required>
+      </div>
+      <button type="submit" class="submit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- Comment Form -->
+  <div id="comment-form" class="form-container">
+    <button class="close-btn">×</button>
+    <h2>Add Comment</h2>
+    <form id="commentForm" action="insert_comment.php" method="post">
+      <div class="form-group">
+        <label for="comment-id">Comment ID:</label>
+        <input type="number" id="comment-id" name="Post_Comment_ID" required>
+      </div>
+      <div class="form-group">
+        <label for="comment-post-id">Post ID:</label>
+        <input type="number" id="comment-post-id" name="Post_id" required>
+      </div>
+      <div class="form-group">
+        <label for="comment-profile-id">User Profile ID:</label>
+        <input type="number" id="comment-profile-id" name="UserProfileID" required>
+      </div>
+      <div class="form-group">
+        <label for="comment-text">Comment Text:</label>
+        <textarea id="comment-text" name="Text_commented" maxlength="150" rows="3"></textarea>
+      </div>
+      <button type="submit" class="submit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- Like Form -->
+  <div id="like-form" class="form-container">
+    <button class="close-btn">×</button>
+    <h2>Add Like</h2>
+    <form id="likeForm" action="insert_like.php" method="post">
+      <div class="form-group">
+        <label for="like-id">Like ID:</label>
+        <input type="number" id="like-id" name="Post_Like_ID" required>
+      </div>
+      <div class="form-group">
+        <label for="like-post-id">Post ID:</label>
+        <input type="number" id="like-post-id" name="Post_id" required>
+      </div>
+      <div class="form-group">
+        <label for="like-profile-id">User Profile ID:</label>
+        <input type="number" id="like-profile-id" name="UserProfileID" required>
+      </div>
+      <button type="submit" class="submit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Submit</button>
+    </form>
+  </div>
+
+
+
+  <!-- Story Form -->
+  <div id="story-form" class="form-container">
+    <button class="close-btn">×</button>
+    <h2>Add Story</h2>
+    <form id="storyForm" action="insert_story.php" method="post">
+      <div class="form-group">
+        <label for="story-id">Story ID:</label>
+        <input type="number" id="story-id" name="Story_ID" required>
+      </div>
+      <div class="form-group">
+        <label for="story-profile-id">User Profile ID:</label>
+        <input type="number" id="story-profile-id" name="UserProfileID" required>
+      </div>
+      <div class="form-group">
+        <label for="story-likes">Likes:</label>
+        <input type="number" id="story-likes" name="Likes" value="0">
+      </div>
+      <div class="form-group">
+        <label for="story-shares">Shares:</label>
+        <input type="number" id="story-shares" name="Shares" value="0">
+      </div>
+      <div class="form-group">
+        <label for="story-comments">Comments:</label>
+        <input type="number" id="story-comments" name="Comments" value="0">
+      </div>
+      <button type="submit" class="submit-btn" style="background-color: #007BFF; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Submit</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
